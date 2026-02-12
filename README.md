@@ -25,6 +25,8 @@ If this project is useful for you, please consider starring this repository and 
 - Universitat Pompeu Fabra
     - John R.B. Palmer
         - [github.com/johnpalmer](https://github.com/johnpalmer)
+    - Otis Johnson
+      - [github.com/johnpalmer](https://github.com/StuffJoy)
 - CEAB-CSIC
     - Pablo Galve Millán
         - [github.com/pablogalve](https://github.com/pablogalve)
