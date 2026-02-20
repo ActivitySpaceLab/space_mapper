@@ -167,7 +167,8 @@ class SpaceMapperSideDrawer extends StatelessWidget {
                     "",
               ),
               subtitle: Text(
-                _nativeLanguageNames[AppLanguage.localeNotifier.value.languageCode] ??
+                _nativeLanguageNames[
+                        AppLanguage.localeNotifier.value.languageCode] ??
                     AppLanguage.localeNotifier.value.languageCode,
               ),
               onTap: () {

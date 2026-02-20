@@ -60,8 +60,8 @@ class Dialog {
               },
             ),
             TextButton(
-              child:
-                  Text(AppLocalizations.of(context)?.translate('confirm') ?? ''),
+              child: Text(
+                  AppLocalizations.of(context)?.translate('confirm') ?? ''),
               onPressed: () {
                 callback(true);
                 Navigator.of(context).pop();
@@ -136,14 +136,14 @@ class Dialog {
           ),
           actions: <Widget>[
             new TextButton(
-                child:
-                    Text(AppLocalizations.of(context)?.translate('cancel') ?? ''),
+                child: Text(
+                    AppLocalizations.of(context)?.translate('cancel') ?? ''),
                 onPressed: () {
                   Navigator.of(context).pop();
                 }),
             new TextButton(
-                child:
-                    Text(AppLocalizations.of(context)?.translate('submit') ?? ''),
+                child: Text(
+                    AppLocalizations.of(context)?.translate('submit') ?? ''),
                 onPressed: () {
                   Navigator.of(context).pop();
                   completer.complete(submittedValue);

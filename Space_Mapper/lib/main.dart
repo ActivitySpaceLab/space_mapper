@@ -147,7 +147,8 @@ void main() {
 
     String? languageCode = prefs.getString(AppLanguage.preferenceKey);
     if (languageCode != null) {
-      AppLanguage.localeNotifier.value = AppLanguage.localeForCode(languageCode);
+      AppLanguage.localeNotifier.value =
+          AppLanguage.localeForCode(languageCode);
     }
 
     print('userUUID: $userUUID');

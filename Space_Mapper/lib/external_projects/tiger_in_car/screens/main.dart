@@ -31,8 +31,8 @@ class _TigerInCarState extends State<TigerInCar>
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text(
-            AppLocalizations.of(context)?.translate('tiger_in_car') ?? ''),
+            title: Text(
+                AppLocalizations.of(context)?.translate('tiger_in_car') ?? ''),
             leading: IconButton(
               icon: Icon(
                 Icons.arrow_back,
@@ -44,7 +44,6 @@ class _TigerInCarState extends State<TigerInCar>
         body: displayButtons(),
       ),
       debugShowCheckedModeBanner: false,
-
     );
   }
 
@@ -110,84 +109,119 @@ class _TigerInCarState extends State<TigerInCar>
     ExperimentStatus experimentStatus;
 
     int rows = await getAmountOfRows();
-    final project = await ProjectDatabase.instance.readProject(GlobalProjectData.active_project_number ?? -1);
-print('Project id : ${project.projectId}');
-print('Project number : ${project.projectNumber}');
-print('Project status : ${project.projectStatus}');
+    final project = await ProjectDatabase.instance
+        .readProject(GlobalProjectData.active_project_number ?? -1);
+    print('Project id : ${project.projectId}');
+    print('Project number : ${project.projectNumber}');
+    print('Project status : ${project.projectStatus}');
 
-
-   if (project.projectId == -1) {
+    if (project.projectId == -1) {
       print('it got to here : ${project.projectId}');
-List<Widget> newList = [];
+      List<Widget> newList = [];
 
-Widget card3 = displayCardBtn(AppLocalizations.of(context)?.translate('tiger_in_car_not_started') ?? '',
-          Color.fromARGB(255, 255, 255, 255), Icons.not_started, 4, 1.65, 0);
+      Widget card3 = displayCardBtn(
+          AppLocalizations.of(context)?.translate('tiger_in_car_not_started') ??
+              '',
+          Color.fromARGB(255, 255, 255, 255),
+          Icons.not_started,
+          4,
+          1.65,
+          0);
       newList.add(card3);
-
 
       TextButton(
-  onPressed: () {
-    Navigator.of(context).pushNamed('/participate_in_a_project');
-  },
-  style: ButtonStyle(
-    backgroundColor: MaterialStateProperty.all(Colors.red),  // Adjust the background color as needed
-    elevation: MaterialStateProperty.all(2.0),  // Adjust the elevation as needed
-    shape: MaterialStateProperty.all(RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(8.0),  // Adjust the border radius as needed
-    )),
-  ),
-  child: ListTile(
-    leading: const Icon(Icons.edit),
-    title: Text(
-      AppLocalizations.of(context)?.translate("participate_in_a_project") ?? "",
-    ),
-  ),
-);
-    }
-else {
-        print('but not here : ${project.projectId}');
-
-    if (rows == 0) {
-      experimentStatus = ExperimentStatus.not_started;
+        onPressed: () {
+          Navigator.of(context).pushNamed('/participate_in_a_project');
+        },
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(
+              Colors.red), // Adjust the background color as needed
+          elevation:
+              MaterialStateProperty.all(2.0), // Adjust the elevation as needed
+          shape: MaterialStateProperty.all(RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(
+                8.0), // Adjust the border radius as needed
+          )),
+        ),
+        child: ListTile(
+          leading: const Icon(Icons.edit),
+          title: Text(
+            AppLocalizations.of(context)
+                    ?.translate("participate_in_a_project") ??
+                "",
+          ),
+        ),
+      );
     } else {
-      TigerInCarState state = await TigerInCarDatabase.instance.readState(rows);
-      if (state.isAlive) {
-        experimentStatus = ExperimentStatus.ongoing;
-      } else {
+      print('but not here : ${project.projectId}');
+
+      if (rows == 0) {
         experimentStatus = ExperimentStatus.not_started;
+      } else {
+        TigerInCarState state =
+            await TigerInCarDatabase.instance.readState(rows);
+        if (state.isAlive) {
+          experimentStatus = ExperimentStatus.ongoing;
+        } else {
+          experimentStatus = ExperimentStatus.not_started;
+        }
       }
-    }
 
-    List<Widget> newList = [];
-if (project.projectId == -1) {
-      print('it got to here : ${project.projectId}');
+      List<Widget> newList = [];
+      if (project.projectId == -1) {
+        print('it got to here : ${project.projectId}');
 
-Widget card3 = displayCardBtn(AppLocalizations.of(context)?.translate('tiger_in_car_not_started') ?? '',
-          Color.fromARGB(255, 255, 255, 255), Icons.account_box_sharp, 4, 1.65, 0);
-      newList.add(card3);
-} else {
-   print('nopes, got to here : ${project.projectId}');
-    // Display buttons depending on the experiment status
-    if (experimentStatus == ExperimentStatus.not_started) {
-        Widget card = displayCardBtn(AppLocalizations.of(context)?.translate('initiate_experiment') ?? '',
-          Color.fromARGB(255, 255, 255, 255), Icons.not_started, 4, 1.65, 0);
-      newList.add(card);
-    } else {
-        Widget card1 = displayCardBtn(AppLocalizations.of(context)?.translate('mosquito_alive_now') ?? '',
-          Color.fromARGB(255, 155, 255, 155), Icons.sync, 4, 1.65, 1);
+        Widget card3 = displayCardBtn(
+            AppLocalizations.of(context)
+                    ?.translate('tiger_in_car_not_started') ??
+                '',
+            Color.fromARGB(255, 255, 255, 255),
+            Icons.account_box_sharp,
+            4,
+            1.65,
+            0);
+        newList.add(card3);
+      } else {
+        print('nopes, got to here : ${project.projectId}');
+        // Display buttons depending on the experiment status
+        if (experimentStatus == ExperimentStatus.not_started) {
+          Widget card = displayCardBtn(
+              AppLocalizations.of(context)?.translate('initiate_experiment') ??
+                  '',
+              Color.fromARGB(255, 255, 255, 255),
+              Icons.not_started,
+              4,
+              1.65,
+              0);
+          newList.add(card);
+        } else {
+          Widget card1 = displayCardBtn(
+              AppLocalizations.of(context)?.translate('mosquito_alive_now') ??
+                  '',
+              Color.fromARGB(255, 155, 255, 155),
+              Icons.sync,
+              4,
+              1.65,
+              1);
 
-        Widget card2 = displayCardBtn(AppLocalizations.of(context)?.translate('finish_experiment') ?? '',
-          Color.fromARGB(255, 255, 155, 155), Icons.stop_circle, 4, 1.65, 2);
-      newList.add(card1);
-      newList.add(card2);
-    }
+          Widget card2 = displayCardBtn(
+              AppLocalizations.of(context)?.translate('finish_experiment') ??
+                  '',
+              Color.fromARGB(255, 255, 155, 155),
+              Icons.stop_circle,
+              4,
+              1.65,
+              2);
+          newList.add(card1);
+          newList.add(card2);
+        }
 
-    if (this.mounted) {
-      setState(() {
-        listOfButtonsToDisplay = newList;
-      });
-    }
-    }
+        if (this.mounted) {
+          setState(() {
+            listOfButtonsToDisplay = newList;
+          });
+        }
+      }
     }
   }
 
@@ -206,16 +240,15 @@ Widget card3 = displayCardBtn(AppLocalizations.of(context)?.translate('tiger_in_
     switch (btnIndex) {
       case 0:
 //        SendTigerInCarDataToAPI sendToAPI = SendTigerInCarDataToAPI();
-        state.message = AppLocalizations.of(context)
-            ?.translate('experiment_started') ??
-          '';
- //       sendToAPI.submitData(state);
+        state.message =
+            AppLocalizations.of(context)?.translate('experiment_started') ?? '';
+        //       sendToAPI.submitData(state);
         break;
       case 1:
-   //     SendTigerInCarDataToAPI sendToAPI = SendTigerInCarDataToAPI();
+        //     SendTigerInCarDataToAPI sendToAPI = SendTigerInCarDataToAPI();
         state.message =
-          AppLocalizations.of(context)?.translate('mosquito_is_alive') ?? '';
-     //   sendToAPI.submitData(state);
+            AppLocalizations.of(context)?.translate('mosquito_is_alive') ?? '';
+        //   sendToAPI.submitData(state);
         break;
       case 2:
         Navigator.of(context)

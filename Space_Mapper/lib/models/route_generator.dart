@@ -13,7 +13,6 @@ import '../ui/project_detail.dart';
 import '../ui/projects_list.dart';
 import '../ui/web_view.dart';
 
-
 class GlobalRouteData {
   static String? user_route = "brown";
 }
@@ -22,11 +21,11 @@ class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     // Getting arguments passed in while calling Navigator.pushNamed
     final args = settings.arguments;
-    print('project rouite ping 1: $settings.name'); 
+    print('project rouite ping 1: $settings.name');
     GlobalRouteData.user_route = settings.name;
     //print(settings.name);
-    print(GlobalRouteData.user_route); 
-    print('project rouite ping 2: ($GlobalRouteData.user_route)'); 
+    print(GlobalRouteData.user_route);
+    print('project rouite ping 2: ($GlobalRouteData.user_route)');
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(builder: (_) => HomeView('Space Mapper'));
@@ -40,12 +39,15 @@ class RouteGenerator {
       case '/report_an_issue':
         return MaterialPageRoute(builder: (_) => ReportAnIssue());
 //      case '/my_statistics':
- //       return MaterialPageRoute(builder: (_) => MyStatistics());
+      //       return MaterialPageRoute(builder: (_) => MyStatistics());
       case '/navigation_to_webview':
         if (args is Map<String, String>) {
           return MaterialPageRoute(
-              builder: (_) => MyWebView(args['selectedUrl'] ?? '',
-                  args['locationHistoryJSON'] ?? '', args['locationSharingMethod'] ?? '', args['surveyElementCode'] ?? ''));
+              builder: (_) => MyWebView(
+                  args['selectedUrl'] ?? '',
+                  args['locationHistoryJSON'] ?? '',
+                  args['locationSharingMethod'] ?? '',
+                  args['surveyElementCode'] ?? ''));
         }
         return _errorRoute();
       case '/record_contact':
@@ -56,11 +58,11 @@ class RouteGenerator {
         }
         return _errorRoute();
       case '/new_project':
-      return MaterialPageRoute(builder: (_) => ProjectCreation());
+        return MaterialPageRoute(builder: (_) => ProjectCreation());
       case '/project_tiger_in_car':
         return MaterialPageRoute(builder: (_) => TigerInCar());
       case '/tiger_in_car_finish_experiment':
-        if(args is TigerInCarState){
+        if (args is TigerInCarState) {
           return MaterialPageRoute(builder: (_) => FinishExperiment(args));
         }
         return _errorRoute();
@@ -79,9 +81,9 @@ class RouteGenerator {
                     ''),
           ),
           body: Center(
-            child: Text(AppLocalizations.of(context)
-                    ?.translate('error_404_message') ??
-                ''),
+            child: Text(
+                AppLocalizations.of(context)?.translate('error_404_message') ??
+                    ''),
           ));
     });
   }

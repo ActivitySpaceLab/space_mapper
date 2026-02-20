@@ -22,11 +22,11 @@ class MyWebView extends StatefulWidget {
   final String locationSharingMethod;
   final String surveyElementCode;
   //String userUUID = '';
-  MyWebView(this.selectedUrl, this.locationHistoryJSON, this.locationSharingMethod, this.surveyElementCode);
+  MyWebView(this.selectedUrl, this.locationHistoryJSON,
+      this.locationSharingMethod, this.surveyElementCode);
   @override
-  _MyWebViewState createState() =>
-      _MyWebViewState(selectedUrl, locationHistoryJSON, locationSharingMethod, surveyElementCode);
-
+  _MyWebViewState createState() => _MyWebViewState(selectedUrl,
+      locationHistoryJSON, locationSharingMethod, surveyElementCode);
 }
 
 class _MyWebViewState extends State<MyWebView> {
@@ -35,20 +35,19 @@ class _MyWebViewState extends State<MyWebView> {
   final String locationHistoryJSON;
   final String locationSharingMethod;
   final String surveyElementCode;
-  String userUUID= GlobalData.userUUID;
+  String userUUID = GlobalData.userUUID;
   final Completer<WebViewController> _controller =
       Completer<WebViewController>();
   late WebViewController _webViewcontroller;
 
-  _MyWebViewState(this.selectedUrl, this.locationHistoryJSON, this.locationSharingMethod, this.surveyElementCode);
+  _MyWebViewState(this.selectedUrl, this.locationHistoryJSON,
+      this.locationSharingMethod, this.surveyElementCode);
 
   @override
   void initState() {
     super.initState();
     if (Platform.isAndroid) WebView.platform = SurfaceAndroidWebView();
-
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -59,20 +58,22 @@ class _MyWebViewState extends State<MyWebView> {
         /*actions: <Widget>[
           NavigationControls(_controller.future),
         ],*/
-        leading: IconButton(icon: Icon(Icons.arrow_back),
-         onPressed: () {
-    Navigator.of(context).pushNamed('/');},
-  //      actions: <Widget>[
-   //       NavigationControls(_controller.future),
-    //    ],
-      ),
-      ),// We're using a Builder here so we have a context that is below the Scaffold
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pushNamed('/');
+          },
+          //      actions: <Widget>[
+          //       NavigationControls(_controller.future),
+          //    ],
+        ),
+      ), // We're using a Builder here so we have a context that is below the Scaffold
       // to allow calling Scaffold.of(context) so we can show a snackbar.
       body: Builder(builder: (BuildContext context) {
         //generatedUrl = selectedUrl + "?&d[user_id]=" + userUUID + "&d[experiment_status]=" + GlobalProjectData.active_project_status;
-              print('userURL web 2: $selectedUrl'); 
-              print('userUUID web 2: $userUUID'); 
-              print('userUUID web 2: $GlobalProjectData.generatedUrl'); 
+        print('userURL web 2: $selectedUrl');
+        print('userUUID web 2: $userUUID');
+        print('userUUID web 2: $GlobalProjectData.generatedUrl');
         return WebView(
           //initialUrl: selectedUrl + userUUID,
           initialUrl: GlobalProjectData.generatedUrl,
@@ -88,21 +89,23 @@ class _MyWebViewState extends State<MyWebView> {
             _toasterJavascriptChannel(context),
           },
           onPageStarted: (String url) {
-             print('Page started loading: $url');
-             if(url == "https://ee.kobotoolbox.org/thanks" || url == "https://ee-eu.kobotoolbox.org/thanks"){
+            print('Page started loading: $url');
+            if (url == "https://ee.kobotoolbox.org/thanks" ||
+                url == "https://ee-eu.kobotoolbox.org/thanks") {
               print('MOVING TO THANKS PAGE');
               Navigator.pop(context);
-             }
-
+            }
           },
           onPageFinished: (String url) {
-
-          if(url != "https://ee.kobotoolbox.org/thanks" &&  url != "https://ee-eu.kobotoolbox.org/thanks" && (locationSharingMethod == '1' || locationSharingMethod == '3') ){
-
-            _setFormLocationHistory();
-            print('Page finished loading: $url');
-            print('var event = new Event("change", {bubbles: true,}); var this_input = document.getElementsByName("/$surveyElementCode/location_history")[0]; this_input.value = "$locationHistoryJSON"; this_input.dispatchEvent(event);');
-          }
+            if (url != "https://ee.kobotoolbox.org/thanks" &&
+                url != "https://ee-eu.kobotoolbox.org/thanks" &&
+                (locationSharingMethod == '1' ||
+                    locationSharingMethod == '3')) {
+              _setFormLocationHistory();
+              print('Page finished loading: $url');
+              print(
+                  'var event = new Event("change", {bubbles: true,}); var this_input = document.getElementsByName("/$surveyElementCode/location_history")[0]; this_input.value = "$locationHistoryJSON"; this_input.dispatchEvent(event);');
+            }
           },
           gestureNavigationEnabled: true,
         );
@@ -125,7 +128,7 @@ class _MyWebViewState extends State<MyWebView> {
 
     await _webViewcontroller.runJavascript(
         'var event = new Event("change", {bubbles: true,}); var this_input = document.getElementsByName("/$surveyElementCode/location_history")[0]; this_input.style.visibility="hidden"; this_input.value = "$locationHistoryJSON"; this_input.dispatchEvent(event);');
-   }
+  }
 }
 
 class NavigationControls extends StatelessWidget {

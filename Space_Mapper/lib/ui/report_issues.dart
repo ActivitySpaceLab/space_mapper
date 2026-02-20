@@ -20,7 +20,11 @@ class ReportAnIssue extends StatelessWidget {
 }
 
 Widget reportIssueBody(BuildContext context) {
-  List<String> emails = ['john.palmer@upf.edu','otis.johnson@upf.edu', 'pablogalve100@gmail.com'];
+  List<String> emails = [
+    'john.palmer@upf.edu',
+    'otis.johnson@upf.edu',
+    'pablogalve100@gmail.com'
+  ];
 
   return Padding(
       padding: EdgeInsets.all(ReportAnIssueStyle.screenPadding),
@@ -76,12 +80,12 @@ Widget reportIssueBody(BuildContext context) {
               ReportAnIssueStyle.reportIssueColor,
               context,
               emails: emails,
-                subject: AppLocalizations.of(context)
-                    ?.translate('report_issue_email_subject') ??
+              subject: AppLocalizations.of(context)
+                      ?.translate('report_issue_email_subject') ??
                   '',
-              body:
-                  AppLocalizations.of(context)?.translate('report_issue_email_body') ??
-                    ''),
+              body: AppLocalizations.of(context)
+                      ?.translate('report_issue_email_body') ??
+                  ''),
           customButtonWithUrl(
               AppLocalizations.of(context)?.translate("report_email_btn2") ??
                   "",
@@ -89,13 +93,12 @@ Widget reportIssueBody(BuildContext context) {
               ReportAnIssueStyle.requestFeatureColor,
               context,
               emails: emails,
-                subject: AppLocalizations.of(context)
-                    ?.translate('feature_request_email_subject') ??
+              subject: AppLocalizations.of(context)
+                      ?.translate('feature_request_email_subject') ??
                   '',
-              body:
-                  AppLocalizations.of(context)
+              body: AppLocalizations.of(context)
                       ?.translate('feature_request_email_body') ??
-                    ''),
+                  ''),
         ],
       ));
 }
@@ -129,7 +132,8 @@ Future<bool> launchMailto(
   // Convert the Mailto instance into a string.
   // Use either Dart's string interpolation
   // or the toString() method.
-  await launchUrl(Uri.parse('$mailtoLink'), mode: LaunchMode.externalApplication);
+  await launchUrl(Uri.parse('$mailtoLink'),
+      mode: LaunchMode.externalApplication);
   return true;
 }
 

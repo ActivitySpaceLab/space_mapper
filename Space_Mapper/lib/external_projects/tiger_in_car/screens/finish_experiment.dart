@@ -37,9 +37,9 @@ class _FinishExperimentState extends State<FinishExperiment>
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text(AppLocalizations.of(context)
-              ?.translate('why_experiment_finished') ??
-            ''),
+            title: Text(AppLocalizations.of(context)
+                    ?.translate('why_experiment_finished') ??
+                ''),
             leading: IconButton(
               icon: Icon(
                 Icons.arrow_back,
@@ -66,27 +66,27 @@ class _FinishExperimentState extends State<FinishExperiment>
             // Width is an int that goes from 1 to 4 and it's relative to the screen's size => 1=25% of the screen's width, 2=50%, 3=75% and 4=100%
             // Height is a float
             displayCardBtn(
-              AppLocalizations.of(context)?.translate('mosquito_died') ?? '',
+                AppLocalizations.of(context)?.translate('mosquito_died') ?? '',
                 Color.fromARGB(255, 255, 255, 255),
                 Icons.cancel_outlined,
                 4,
                 1.65,
                 0),
             displayCardBtn(
-              AppLocalizations.of(context)?.translate('mosquito_escaped') ??
-                '',
+                AppLocalizations.of(context)?.translate('mosquito_escaped') ??
+                    '',
                 Color.fromARGB(255, 255, 255, 255),
                 Icons.airline_stops,
                 4,
                 1.65,
                 1),
             displayCardBtn(
-              AppLocalizations.of(context)?.translate('other') ?? '',
-              Color.fromARGB(255, 255, 255, 255),
-              Icons.apps,
-              4,
-              1.65,
-              2),
+                AppLocalizations.of(context)?.translate('other') ?? '',
+                Color.fromARGB(255, 255, 255, 255),
+                Icons.apps,
+                4,
+                1.65,
+                2),
           ],
         )));
   }
@@ -109,9 +109,9 @@ class _FinishExperimentState extends State<FinishExperiment>
               height: 250,
               child: TextButton(
                 onPressed: () {
-             //     SendTigerInCarDataToAPI sendToAPI = SendTigerInCarDataToAPI();
+                  //     SendTigerInCarDataToAPI sendToAPI = SendTigerInCarDataToAPI();
                   tigerInCarRoute.message = message;
-               //   sendToAPI.submitData(tigerInCarRoute);
+                  //   sendToAPI.submitData(tigerInCarRoute);
                   addMosquitoDeathToDatabase(message);
                   Navigator.pop(context);
                 },

@@ -225,7 +225,6 @@ class _ProjectDetailState extends State<ProjectDetail> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-
           Row(
             children: [
               Checkbox(
@@ -323,10 +322,10 @@ class _ProjectDetailState extends State<ProjectDetail> {
             child: Text(
               //'End'.toUpperCase(),
               (surveyType == 'ongoing')
-                ? (AppLocalizations.of(context)?.translate('annotate') ?? '')
-                  .toUpperCase()
-                : (AppLocalizations.of(context)?.translate('start') ?? '')
-                  .toUpperCase(),
+                  ? (AppLocalizations.of(context)?.translate('annotate') ?? '')
+                      .toUpperCase()
+                  : (AppLocalizations.of(context)?.translate('start') ?? '')
+                      .toUpperCase(),
               style: Styles.textCTAButton,
             ),
             /* ),
@@ -427,6 +426,7 @@ class _ProjectDetailState extends State<ProjectDetail> {
       DateTime this_start_time = startTime ?? DateTime.now().toUtc();
 
       print('this start time is $this_start_time');
+
       /// var difference = berlinWallFell.difference(moonLanding);
       /// assert(difference.inDays == 7416);
       List allLocations = await bg.BackgroundGeolocation.locations;
@@ -448,15 +448,16 @@ class _ProjectDetailState extends State<ProjectDetail> {
         //      else
         //       break;
 
-        bool is_after =
-            DateTime.parse(_loc.getTimestamp()).isAfter(this_start_time.toUtc().subtract(const Duration(minutes: 15))); //15 min buffer to ensure initial location of trip is grabbed.
+        bool is_after = DateTime.parse(_loc.getTimestamp()).isAfter(
+            this_start_time.toUtc().subtract(const Duration(
+                minutes:
+                    15))); //15 min buffer to ensure initial location of trip is grabbed.
 
         print('is_after $is_after');
 
-        if (is_after)
-          customLocation.add(_loc);
+        if (is_after) customLocation.add(_loc);
 //        else
- //           break;
+        //           break;
       }
 
       ret = jsonEncode(customLocation);
@@ -499,19 +500,20 @@ class _ProjectDetailState extends State<ProjectDetail> {
         GlobalProjectData.active_project_number, statusToSet);
 
     // Special for Tiger on Board project (make sure this projectID number matches)
-   // if (projectID == 0) {
-   //   DateTime date = DateTime.now();
+    // if (projectID == 0) {
+    //   DateTime date = DateTime.now();
     //  final state = TigerInCarState(isAlive: true, date: date);
 //      SendTigerInCarDataToAPI sendToAPI = SendTigerInCarDataToAPI();
 //      sendToAPI.submitData(state);
-   // }
+    // }
     active_project_url = project.webUrl ?? "";
     GlobalProjectData.generatedUrl = active_project_url +
         "?&d[user_id]=" +
         GlobalData.userUUID +
         "&d[experiment_status]=" +
         surveyType +
-        "&d[unix_time]=" + DateTime.now().toUtc().toString();
+        "&d[unix_time]=" +
+        DateTime.now().toUtc().toString();
 
     print('Project full url : ${GlobalProjectData.generatedUrl}');
     print('Project web URL : ${project.webUrl}');
