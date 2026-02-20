@@ -6,8 +6,10 @@ Space Mapper is a privacy-focused mobile phone application that lets you see you
 [![DOI](https://zenodo.org/badge/1156499712.svg)](https://doi.org/10.5281/zenodo.18624865)
 
 ## Screenshots
-<img src="Assets/images/IMG_0246.png"  width="95%"></img>
-<img src="Assets/images/IMG_0445.png"  width="95%"></img>
+<p align="center">
+    <img src="Assets/images/IMG_0246.png" width="45%" />
+    <img src="Assets/images/IMG_0445.png" width="45%" />
+</p>
 
 ## How to contribute
 Do you want to contribute?

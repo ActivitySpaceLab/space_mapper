@@ -29,8 +29,9 @@ class AvailableProjectsScreenState extends State<AvailableProjectsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            title: Text(
-                AppLocalizations.of(context)?.translate("participate_in_a_project") ?? "")),
+            title: Text(AppLocalizations.of(context)
+                    ?.translate("participate_in_a_project") ??
+                "")),
         body: RefreshIndicator(
           onRefresh: loadData,
           child: Column(
@@ -45,36 +46,34 @@ class AvailableProjectsScreenState extends State<AvailableProjectsScreen> {
   Future<void> loadData() async {
     if (this.mounted) {
       setState(() => this.loading = true);
-      print('ping number 1'); 
-      print(GlobalRouteData.user_route); 
+      print('ping number 1');
+      print(GlobalRouteData.user_route);
 
-      if(GlobalRouteData.user_route == "/active_projects") {
+      if (GlobalRouteData.user_route == "/active_projects") {
         projects = await ParticpatingProjects.fetchAll();
         //print("projects are $projects, is empty is ${projects.isEmpty}");
         if (projects.isEmpty) {
           projects = await MockProject.fetchAll();
-        } 
-        print('ping number 3'); 
+        }
+        print('ping number 3');
         setState(() {
           this.projects = projects;
           this.loading = false;
         });
       }
 
-
-      if(GlobalRouteData.user_route == "/participate_in_a_project") {
+      if (GlobalRouteData.user_route == "/participate_in_a_project") {
         projects = await MockProject.fetchAll();
         print("projects are $projects, is empty is ${projects.isEmpty}");
         if (projects.isEmpty) {
           Navigator.of(context).pushNamed('/new_project');
-        } 
+        }
         setState(() {
           this.projects = projects;
           this.loading = false;
         });
-        print('ping number 2'); 
-      } 
-      
+        print('ping number 2');
+      }
     }
   }
 

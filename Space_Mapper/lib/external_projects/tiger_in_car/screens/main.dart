@@ -128,30 +128,6 @@ class _TigerInCarState extends State<TigerInCar>
           1.65,
           0);
       newList.add(card3);
-
-      TextButton(
-        onPressed: () {
-          Navigator.of(context).pushNamed('/participate_in_a_project');
-        },
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(
-              Colors.red), // Adjust the background color as needed
-          elevation:
-              MaterialStateProperty.all(2.0), // Adjust the elevation as needed
-          shape: MaterialStateProperty.all(RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(
-                8.0), // Adjust the border radius as needed
-          )),
-        ),
-        child: ListTile(
-          leading: const Icon(Icons.edit),
-          title: Text(
-            AppLocalizations.of(context)
-                    ?.translate("participate_in_a_project") ??
-                "",
-          ),
-        ),
-      );
     } else {
       print('but not here : ${project.projectId}');
 

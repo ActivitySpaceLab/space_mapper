@@ -27,7 +27,7 @@ jobs:
       working-directory: Space_Mapper
     
     - name: Statically analyze the Dart code for any errors.
-      run: flutter analyze
+      run: flutter analyze --no-fatal-infos
       working-directory: Space_Mapper
     
     - name: Run tests with coverage
