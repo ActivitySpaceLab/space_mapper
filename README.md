@@ -3,8 +3,6 @@
 Space Mapper is a privacy-focused mobile phone application that lets you see your daily movements in a map. Additionally, you can optionally participate in citizen science by sharing your anonymized location history with research institutions to help scientists research about human mobility.
 
 [![CI tests](https://github.com/ActivitySpaceProject/space_mapper/actions/workflows/CI.yml/badge.svg)](https://github.com/ActivitySpaceProject/space_mapper/actions/workflows/CI.yml)
-[![drive_test iOS](https://github.com/ActivitySpaceProject/space_mapper/actions/workflows/drive-ios.yml/badge.svg)](https://github.com/ActivitySpaceProject/space_mapper/actions/workflows/drive-ios.yml)
-[![drive_test Android](https://github.com/ActivitySpaceProject/space_mapper/actions/workflows/drive-android.yml/badge.svg)](https://github.com/ActivitySpaceProject/space_mapper/actions/workflows/drive-android.yml)
 [![codecov](https://codecov.io/gh/ActivitySpaceProject/space_mapper/branch/master/graph/badge.svg?token=HBJXBV7VR6)](https://codecov.io/gh/ActivitySpaceProject/space_mapper)
 
 ## Screenshots

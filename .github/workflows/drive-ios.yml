@@ -1,7 +1,8 @@
 name: drive_test iOS
 
-# Trigger the workflow on push or pull request.
-on: [push, pull_request]
+# Manual trigger only (legacy Flutter Driver workflow).
+on:
+  workflow_dispatch:
 
 # A workflow run is made up of one or more jobs.
 jobs:
