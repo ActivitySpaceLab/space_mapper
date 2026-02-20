@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_background_geolocation/flutter_background_geolocation.dart'
     as bg;
 import 'package:flutter_map/flutter_map.dart';
-import 'package:flutter_map/plugin_api.dart';
 import 'package:latlong2/latlong.dart';
 
 class MapView extends StatefulWidget {
@@ -44,7 +43,7 @@ class MapViewState extends State<MapView>
     bg.BackgroundGeolocation.onMotionChange(_onMotionChange);
     bg.BackgroundGeolocation.onEnabledChange(_onEnabledChange);
 
-    _mapController.onReady.then((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       _displayStoredLocations();
     });
   }
@@ -105,7 +104,7 @@ class MapViewState extends State<MapView>
     if (location.sample == true) {
       return;
     }
-  
+
     // Add a point to the tracking polyline.
     _polyline.add(ll);
     // Add a marker for the recorded location.
@@ -163,11 +162,11 @@ class MapViewState extends State<MapView>
     return FlutterMap(
       mapController: _mapController,
       options: _mapOptions,
-      layers: [
-        new TileLayerOptions(
+      children: [
+        TileLayer(
             urlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
             subdomains: ['a', 'b', 'c']),
-        new PolylineLayerOptions(
+        PolylineLayer(
           polylines: [
             new Polyline(
               points: _polyline,
@@ -176,15 +175,11 @@ class MapViewState extends State<MapView>
             ),
           ],
         ),
-        // Big red stationary radius while in stationary state.
-        new CircleLayerOptions(circles: _stationaryMarker),
-        // Polyline joining last stationary location to motionchange:true location.
-        new PolylineLayerOptions(polylines: _motionChangePolylines),
-        // Recorded locations.
-        new CircleLayerOptions(circles: _locations),
-        // Small, red circles showing where motionchange:false events fired.
-        new CircleLayerOptions(circles: _stopLocations),
-        new CircleLayerOptions(circles: _currentPosition),
+        CircleLayer(circles: _stationaryMarker),
+        PolylineLayer(polylines: _motionChangePolylines),
+        CircleLayer(circles: _locations),
+        CircleLayer(circles: _stopLocations),
+        CircleLayer(circles: _currentPosition),
       ],
     );
   }

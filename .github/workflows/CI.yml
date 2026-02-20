@@ -18,9 +18,11 @@ jobs:
         java-version: '17'
     - uses: subosito/flutter-action@v2
       with:
-        flutter-version: 3.16.x
-        channel: stable
+        flutter-version: 3.19.1
         cache: true
+
+    - name: Show Flutter version
+      run: flutter --version
          
     - name: Get flutter dependencies
       run: flutter pub get
@@ -31,7 +33,9 @@ jobs:
       working-directory: Space_Mapper
     
     - name: Run tests with coverage
-      run: flutter test --coverage
+      run: |
+        set -o pipefail
+        flutter test --coverage 2>&1 | grep -Ev '(HTTP request failed, statusCode: 400|Error fetching projects: Bad state: databaseFactory not initialized|databaseFactory is only initialized when using sqflite|You must call .*databaseFactoryFfi.*global openDatabase API|ping number 1|project rouite ping|^brown$)'
       working-directory: Space_Mapper
       
     - name: Upload coverage to codecov

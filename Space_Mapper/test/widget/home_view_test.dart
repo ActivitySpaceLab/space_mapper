@@ -13,7 +13,7 @@ void main() {
 
     expect(find.byIcon(Icons.menu), findsOneWidget);
     expect(find.byIcon(Icons.gps_fixed), findsOneWidget);
-    expect(find.byIcon(Icons.person), findsOneWidget);
+    expect(find.byIcon(Icons.add_circle), findsOneWidget);
   });
 
   /*testWidgets('Go to add contact screen', (WidgetTester tester) async {

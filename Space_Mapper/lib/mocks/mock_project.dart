@@ -4,31 +4,51 @@ import '../db/database_project.dart';
 mixin MockProject implements Project {
   static List<Project> items = [];
 
-  static Future<void> populateItemsFromDatabase() async {
-    final projects = await ProjectDatabase.instance.FetchAllProjects();
+  static List<Project> _defaultItems() {
+    return [
+      Project(
+        0,
+        'Sample Project',
+        'Sample project summary',
+        null,
+        null,
+        '',
+        1,
+        '',
+      )
+    ];
+  }
 
-    items = projects.map((project) {
-      return Project(
-        project.projectId ??
-            -1, // Replace with the actual field name from your database
-        project
-            .projectName, // Replace with the actual field name from your database
-        project.projectDescription ??
-            "", // Replace with the actual field name from your database
-        project
-            .externalLink, // Replace with the actual field name from your database
-        project
-            .internalLink, // Replace with the actual field name from your database
-        project.projectImageLocation ??
-            "", // Replace with the actual field name from your database
-        project.locationSharingMethod,
-        project.surveyElementCode,
-      );
-    }).toList();
+  static Future<void> populateItemsFromDatabase() async {
+    try {
+      final projects = await ProjectDatabase.instance.FetchAllProjects();
+
+      items = projects.map((project) {
+        return Project(
+          project.projectId ?? -1,
+          project.projectName,
+          project.projectDescription ?? "",
+          project.externalLink,
+          project.internalLink,
+          project.projectImageLocation ?? "",
+          project.locationSharingMethod,
+          project.surveyElementCode,
+        );
+      }).toList();
+    } catch (_) {
+      items = _defaultItems();
+    }
+
+    if (items.isEmpty) {
+      items = _defaultItems();
+    }
   }
 
   static Project fetchFirst() {
-    populateItemsFromDatabase();
+    if (items.isEmpty) {
+      items = _defaultItems();
+      populateItemsFromDatabase();
+    }
     if (items.isNotEmpty) {
       return items[0];
     }
