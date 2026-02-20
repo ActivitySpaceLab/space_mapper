@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:asm/ui/project_detail.dart';
+import 'package:asm/models/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import '../../main.dart';
@@ -53,7 +54,7 @@ class _MyWebViewState extends State<MyWebView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Project'),
+        title: Text(AppLocalizations.of(context)?.translate('project') ?? ''),
         // This drop down menu demonstrates that Flutter widgets can be shown over the web view.
         /*actions: <Widget>[
           NavigationControls(_controller.future),

@@ -10,7 +10,10 @@ class ReportAnIssue extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Report an Issue")),
+      appBar: AppBar(
+          title: Text(
+              AppLocalizations.of(context)?.translate("report_an_issue") ??
+                  "")),
       body: SingleChildScrollView(child: reportIssueBody(context)),
     );
   }
@@ -28,7 +31,7 @@ Widget reportIssueBody(BuildContext context) {
             style: TextStyle(fontSize: ReportAnIssueStyle.normalTextSize),
           ),
           displayService(
-              "Github",
+              AppLocalizations.of(context)?.translate("github") ?? "",
               Icon(
                 AntDesign.github,
                 size: ReportAnIssueStyle.iconSize,
@@ -53,7 +56,7 @@ Widget reportIssueBody(BuildContext context) {
                 bottom: ReportAnIssueStyle.marginBetweenTextAndButtons),
           ),
           displayService(
-              "Email",
+              AppLocalizations.of(context)?.translate("email") ?? "",
               Icon(
                 Icons.email_outlined,
                 size: ReportAnIssueStyle.iconSize,
@@ -73,9 +76,12 @@ Widget reportIssueBody(BuildContext context) {
               ReportAnIssueStyle.reportIssueColor,
               context,
               emails: emails,
-              subject: 'Space Mapper: Report Issue',
+                subject: AppLocalizations.of(context)
+                    ?.translate('report_issue_email_subject') ??
+                  '',
               body:
-                  'Dear Space Mapper support, \n\n I want to report the following issue:'),
+                  AppLocalizations.of(context)?.translate('report_issue_email_body') ??
+                    ''),
           customButtonWithUrl(
               AppLocalizations.of(context)?.translate("report_email_btn2") ??
                   "",
@@ -83,9 +89,13 @@ Widget reportIssueBody(BuildContext context) {
               ReportAnIssueStyle.requestFeatureColor,
               context,
               emails: emails,
-              subject: 'Space Mapper: Feature Request',
+                subject: AppLocalizations.of(context)
+                    ?.translate('feature_request_email_subject') ??
+                  '',
               body:
-                  'Dear Space Mapper support, \n\n I want to request the following feature:'),
+                  AppLocalizations.of(context)
+                      ?.translate('feature_request_email_body') ??
+                    ''),
         ],
       ));
 }

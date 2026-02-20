@@ -56,7 +56,10 @@ class _STOListViewState extends State<STOListView> {
                     onDismissed: (direction) async => {
                       await thisLocation.deleteThisLocation(),
                       ScaffoldMessenger.of(context).showSnackBar(
-                          new SnackBar(content: new Text("Location removed")))
+                          new SnackBar(
+                              content: new Text(AppLocalizations.of(context)
+                                      ?.translate("location_removed") ??
+                                  "")))
                     },
                   );
                 });

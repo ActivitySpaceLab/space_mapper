@@ -31,7 +31,8 @@ class _TigerInCarState extends State<TigerInCar>
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-            title: Text("Tiger in Car"),
+          title: Text(
+            AppLocalizations.of(context)?.translate('tiger_in_car') ?? ''),
             leading: IconButton(
               icon: Icon(
                 Icons.arrow_back,
@@ -119,7 +120,7 @@ print('Project status : ${project.projectStatus}');
       print('it got to here : ${project.projectId}');
 List<Widget> newList = [];
 
-Widget card3 = displayCardBtn("cowboy",
+Widget card3 = displayCardBtn(AppLocalizations.of(context)?.translate('tiger_in_car_not_started') ?? '',
           Color.fromARGB(255, 255, 255, 255), Icons.not_started, 4, 1.65, 0);
       newList.add(card3);
 
@@ -161,21 +162,21 @@ else {
 if (project.projectId == -1) {
       print('it got to here : ${project.projectId}');
 
-Widget card3 = displayCardBtn("cowboy",
+Widget card3 = displayCardBtn(AppLocalizations.of(context)?.translate('tiger_in_car_not_started') ?? '',
           Color.fromARGB(255, 255, 255, 255), Icons.account_box_sharp, 4, 1.65, 0);
       newList.add(card3);
 } else {
    print('nopes, got to here : ${project.projectId}');
     // Display buttons depending on the experiment status
     if (experimentStatus == ExperimentStatus.not_started) {
-      Widget card = displayCardBtn("Initiate Experiment",
+        Widget card = displayCardBtn(AppLocalizations.of(context)?.translate('initiate_experiment') ?? '',
           Color.fromARGB(255, 255, 255, 255), Icons.not_started, 4, 1.65, 0);
       newList.add(card);
     } else {
-      Widget card1 = displayCardBtn("Press if the mosquito is alive now",
+        Widget card1 = displayCardBtn(AppLocalizations.of(context)?.translate('mosquito_alive_now') ?? '',
           Color.fromARGB(255, 155, 255, 155), Icons.sync, 4, 1.65, 1);
 
-      Widget card2 = displayCardBtn("Finish experiment",
+        Widget card2 = displayCardBtn(AppLocalizations.of(context)?.translate('finish_experiment') ?? '',
           Color.fromARGB(255, 255, 155, 155), Icons.stop_circle, 4, 1.65, 2);
       newList.add(card1);
       newList.add(card2);
@@ -205,12 +206,15 @@ Widget card3 = displayCardBtn("cowboy",
     switch (btnIndex) {
       case 0:
 //        SendTigerInCarDataToAPI sendToAPI = SendTigerInCarDataToAPI();
-        state.message = "Experiment started";
+        state.message = AppLocalizations.of(context)
+            ?.translate('experiment_started') ??
+          '';
  //       sendToAPI.submitData(state);
         break;
       case 1:
    //     SendTigerInCarDataToAPI sendToAPI = SendTigerInCarDataToAPI();
-        state.message = "Mosquito is alive";
+        state.message =
+          AppLocalizations.of(context)?.translate('mosquito_is_alive') ?? '';
      //   sendToAPI.submitData(state);
         break;
       case 2:

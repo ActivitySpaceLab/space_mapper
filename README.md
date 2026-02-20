@@ -39,6 +39,19 @@ If this project is useful for you, please consider starring this repository and 
 * Turn it off and on whenever you want.
 * Free, open source software. You'll never have to pay anything or watch any ad to use it.
 
+## Localization
+Space Mapper supports the following app languages:
+- English (`en`)
+- Spanish (`es`)
+- Catalan (`ca`)
+- Galician (`gl`)
+- Basque (`eu`)
+
+Translation files are in `Space_Mapper/lang/*.json`.
+
+For translation management in Loco, use `Space_Mapper/lang/loco_strings.csv`.
+The CSV columns are: `key,en,es,ca,gl,eu`.
+
 ## Download the app
 For more information, please visit the project [website](<http://activityspaceproject.com>). 
 

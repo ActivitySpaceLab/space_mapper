@@ -1,4 +1,5 @@
 import 'package:asm/models/project.dart';
+import 'package:asm/models/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -155,7 +156,8 @@ class _ProjectCreationState extends State<ProjectCreation> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
-        title: Text("Create Project"),
+        title: Text(
+            AppLocalizations.of(context)?.translate("create_project") ?? ""),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -167,24 +169,36 @@ class _ProjectCreationState extends State<ProjectCreation> {
               TextField(
                 controller: _controller,
                 decoration: InputDecoration(
-                  labelText: 'Project Name',
-                  hintText: 'Enter your project name here',
+                  labelText: AppLocalizations.of(context)
+                          ?.translate('project_name_label') ??
+                      '',
+                  hintText: AppLocalizations.of(context)
+                          ?.translate('project_name_hint') ??
+                      '',
                 ),
               ),
               SizedBox(height: 20),
               TextField(
                 controller: _usernameController,
                 decoration: InputDecoration(
-                  labelText: 'Project Account Name',
-                  hintText: 'Enter Project account name here',
+                  labelText: AppLocalizations.of(context)
+                          ?.translate('project_account_name_label') ??
+                      '',
+                  hintText: AppLocalizations.of(context)
+                          ?.translate('project_account_name_hint') ??
+                      '',
                 ),
               ),
               SizedBox(height: 20),
               TextField(
                 controller: _repoNameController,
                 decoration: InputDecoration(
-                  labelText: 'Project Repository Name',
-                  hintText: 'Enter repository name here',
+                  labelText: AppLocalizations.of(context)
+                          ?.translate('project_repository_name_label') ??
+                      '',
+                  hintText: AppLocalizations.of(context)
+                          ?.translate('project_repository_name_hint') ??
+                      '',
                 ),
               ),
               SizedBox(height: 20),
@@ -203,12 +217,16 @@ class _ProjectCreationState extends State<ProjectCreation> {
                   print("finalurl $finalUrl");
                   _handleFetchProject(finalUrl);
                 },
-                child: Text('Fetch Project'),
+                child: Text(
+                    AppLocalizations.of(context)?.translate('fetch_project') ??
+                        ''),
               ),
               // The button to scan a QR code
               ElevatedButton(
                 onPressed: _scanQRCode,
-                child: Text('Scan URL QR Code'),
+                child: Text(AppLocalizations.of(context)
+                        ?.translate('scan_url_qr_code') ??
+                    ''),
               ),
               if (isDataFetched) ...[
                 BannerImage(
@@ -216,7 +234,9 @@ class _ProjectCreationState extends State<ProjectCreation> {
                 ProjectTile(project: project!, darkTheme: false),
                 ElevatedButton(
                   onPressed: insertProjectIntoDB,
-                  child: Text('Save and View Project'),
+                  child: Text(AppLocalizations.of(context)
+                          ?.translate('save_and_view_project') ??
+                      ''),
                 ),
               ] else if (!isDataFetched && projectExists) ...[
                 BannerImage(
@@ -228,12 +248,16 @@ class _ProjectCreationState extends State<ProjectCreation> {
                     Navigator.of(context)
                         .pushNamed('/participate_in_a_project');
                   },
-                  child: Text('View Project'),
+                  child: Text(
+                      AppLocalizations.of(context)?.translate('view_project') ??
+                          ''),
                 ),
               ] else if (!isDataFetched &&
                   !projectExists &&
                   fetchAttempted) ...[
-                Text('No project data found or failed to fetch project.')
+                Text(AppLocalizations.of(context)
+                        ?.translate('project_fetch_failed') ??
+                    '')
               ],
             ],
           ),

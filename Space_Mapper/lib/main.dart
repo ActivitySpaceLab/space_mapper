@@ -17,6 +17,29 @@ class GlobalData {
   static bool user_available_projects = false;
 }
 
+class AppLanguage {
+  static const String preferenceKey = 'app_language_code';
+  static final ValueNotifier<Locale> localeNotifier =
+      ValueNotifier<Locale>(const Locale('en'));
+
+  static Locale localeForCode(String languageCode) {
+    if (AppLocalizations.supportedLanguageCodes.contains(languageCode)) {
+      return Locale(languageCode);
+    }
+    return const Locale('en');
+  }
+
+  static Future<void> setLocale(String languageCode) async {
+    final locale = localeForCode(languageCode);
+    if (localeNotifier.value.languageCode == locale.languageCode) {
+      return;
+    }
+    localeNotifier.value = locale;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString(preferenceKey, locale.languageCode);
+  }
+}
+
 /// Receive events from BackgroundGeolocation in Headless state.
 void backgroundGeolocationHeadlessTask(bg.HeadlessEvent headlessEvent) async {
   print('📬 --> $headlessEvent');
@@ -122,6 +145,11 @@ void main() {
           prefs.getString("user_uuid") ?? ""; // Set the global userUUID
     }
 
+    String? languageCode = prefs.getString(AppLanguage.preferenceKey);
+    if (languageCode != null) {
+      AppLanguage.localeNotifier.value = AppLanguage.localeForCode(languageCode);
+    }
+
     print('userUUID: $userUUID');
     print('sampleId: $sampleId');
 
@@ -139,36 +167,36 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      supportedLocales: [
-        Locale('en',
-            ''), // English, no country code. The first element of this list is the default language
-        Locale('es', ''), // Spanish, no country code
-        //Locale('ca', '') // Catalan, no country code
-      ],
-      localizationsDelegates: [
-        //A class which loads the translations from JSON files
-        AppLocalizations.delegate,
-        // Built-in localization of basic text for Material widgets
-        GlobalMaterialLocalizations.delegate,
-        // Built-in localization for text direction LTR/RTL
-        GlobalWidgetsLocalizations.delegate,
-      ],
-      // Returns a locale which will be used by the app
-      localeResolutionCallback: (locale, supportedLocales) {
-        // Check if the current device locale is supported
-        for (var supportedLocale in supportedLocales) {
-          if (supportedLocale.languageCode == locale!.languageCode) {
-            return supportedLocale;
-          }
-        }
-        // If the locale of the device is not supported, use the first one
-        // from the list (English, in this case).
-        return supportedLocales.first;
+    return ValueListenableBuilder<Locale>(
+      valueListenable: AppLanguage.localeNotifier,
+      builder: (context, selectedLocale, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          locale: selectedLocale,
+          supportedLocales: AppLocalizations.supportedLanguageCodes
+              .map((code) => Locale(code, ''))
+              .toList(),
+          localizationsDelegates: [
+            AppLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          localeResolutionCallback: (locale, supportedLocales) {
+            if (locale == null) {
+              return supportedLocales.first;
+            }
+            for (var supportedLocale in supportedLocales) {
+              if (supportedLocale.languageCode == locale.languageCode) {
+                return supportedLocale;
+              }
+            }
+            return supportedLocales.first;
+          },
+          initialRoute: '/',
+          onGenerateRoute: RouteGenerator.generateRoute,
+        );
       },
-      initialRoute: '/',
-      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }

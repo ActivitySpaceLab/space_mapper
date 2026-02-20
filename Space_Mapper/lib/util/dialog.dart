@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'dart:async';
+import 'package:asm/models/app_localizations.dart';
 
 /// Simple Map of iOS / Android sound ID compatible with [BackgroundGeolocation.playSound].
 ///
@@ -51,14 +52,16 @@ class Dialog {
           content: Text(message),
           actions: <Widget>[
             TextButton(
-              child: Text('Cancel'),
+              child:
+                  Text(AppLocalizations.of(context)?.translate('cancel') ?? ''),
               onPressed: () {
                 callback(false);
                 Navigator.of(context).pop();
               },
             ),
             TextButton(
-              child: Text('Confirm'),
+              child:
+                  Text(AppLocalizations.of(context)?.translate('confirm') ?? ''),
               onPressed: () {
                 callback(true);
                 Navigator.of(context).pop();
@@ -81,7 +84,7 @@ class Dialog {
           content: Text(message),
           actions: <Widget>[
             TextButton(
-              child: Text("Ok"),
+              child: Text(AppLocalizations.of(context)?.translate('ok') ?? ''),
               onPressed: () {
                 if (callback != null) {
                   callback(true);
@@ -133,12 +136,14 @@ class Dialog {
           ),
           actions: <Widget>[
             new TextButton(
-                child: Text('Cancel'),
+                child:
+                    Text(AppLocalizations.of(context)?.translate('cancel') ?? ''),
                 onPressed: () {
                   Navigator.of(context).pop();
                 }),
             new TextButton(
-                child: Text('Submit'),
+                child:
+                    Text(AppLocalizations.of(context)?.translate('submit') ?? ''),
                 onPressed: () {
                   Navigator.of(context).pop();
                   completer.complete(submittedValue);

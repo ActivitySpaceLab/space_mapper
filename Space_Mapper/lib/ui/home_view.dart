@@ -1,5 +1,5 @@
-import 'package:asm/external_projects/tiger_in_car/models/project_list.dart';
 import 'package:asm/main.dart';
+import 'package:asm/models/app_localizations.dart';
 import 'package:asm/ui/side_drawer.dart';
 import 'package:asm/util/env.dart';
 import 'package:flutter/material.dart';
@@ -374,7 +374,8 @@ class HomeViewState extends State<HomeView>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(appName),
+        title: Text(
+            AppLocalizations.of(context)?.translate('app_title') ?? appName),
         centerTitle: true,
         backgroundColor: Colors.blueGrey,
         systemOverlayStyle:

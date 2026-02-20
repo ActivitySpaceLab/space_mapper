@@ -14,7 +14,6 @@ import '../styles.dart';
 import '../external_projects/tiger_in_car/models/participating_projects.dart';
 import '../db/database_project.dart';
 //import '../../main.dart';
-import 'package:asm/external_projects/tiger_in_car/models/tiger_in_car_state.dart';
 
 const BannerImageHeight = 300.0;
 const BodyVerticalPadding = 20.0;
@@ -169,7 +168,9 @@ class _ProjectDetailState extends State<ProjectDetail> {
       child: Column(
         children: [
           Text(
-            "You are participating in this project.",
+            AppLocalizations.of(context)
+                    ?.translate("already_participating_message") ??
+                "",
             style: TextStyle(fontSize: 16.0),
           ),
           SizedBox(height: 20.0),
@@ -322,8 +323,10 @@ class _ProjectDetailState extends State<ProjectDetail> {
             child: Text(
               //'End'.toUpperCase(),
               (surveyType == 'ongoing')
-                  ? 'Annotate'.toUpperCase()
-                  : 'Start'.toUpperCase(),
+                ? (AppLocalizations.of(context)?.translate('annotate') ?? '')
+                  .toUpperCase()
+                : (AppLocalizations.of(context)?.translate('start') ?? '')
+                  .toUpperCase(),
               style: Styles.textCTAButton,
             ),
             /* ),
@@ -376,7 +379,8 @@ class _ProjectDetailState extends State<ProjectDetail> {
                 _navigationToProject(context);
               },
               child: Text(
-                'End'.toUpperCase(),
+                (AppLocalizations.of(context)?.translate('end') ?? '')
+                    .toUpperCase(),
                 style: Styles.textCTAButton,
               ),
             ),

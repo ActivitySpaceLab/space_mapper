@@ -6,6 +6,13 @@ import 'package:flutter/services.dart';
 
 class AppLocalizations {
   final Locale locale;
+  static const List<String> supportedLanguageCodes = [
+    'en',
+    'es',
+    'ca',
+    'gl',
+    'eu',
+  ];
 
   AppLocalizations(this.locale);
 
@@ -37,8 +44,8 @@ class AppLocalizations {
   // This method will be called from every widget which needs a localized text
   // How to call this function with an example:
   // AppLocalizations.of(context)?.translate("your_word") ?? ""; // You have to do it like that to avoid null values and pass the tests
-  String? translate(String key) {
-    return _localizedStrings[key]!;
+  String translate(String key) {
+    return _localizedStrings[key] ?? key;
   }
 }
 
@@ -53,7 +60,8 @@ class _AppLocalizationsDelegate
   @override
   bool isSupported(Locale locale) {
     // Include all of your supported language codes here
-    return ['en', 'es'].contains(locale.languageCode);
+    return AppLocalizations.supportedLanguageCodes
+        .contains(locale.languageCode);
   }
 
   @override

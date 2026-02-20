@@ -1,0 +1,92 @@
+key,en,es,ca,gl,eu
+about_how_old_were_they,About how old were they,¿Qué edad aproximada tenían?,Quina edat aproximada tenien?,Que idade aproximada tiñan?,Zenbat urte inguru zituzten?
+about_the_project,About the project,Sobre el proyecto,Sobre el projecte,Sobre o proxecto,Proiektuari buruz
+active_projects,Active Projects,Proyectos activos,Projectes actius,Proxectos activos,Proiektu aktiboak
+activity,Activity,Actividad,Activitat,Actividade,Jarduera
+already_participating_message,You are participating in this project.,Ya estás participando en este proyecto.,Ja participes en aquest projecte.,Xa estás a participar neste proxecto.,Proiektu honetan parte hartzen ari zara dagoeneko.
+altitude,Altitude,Altitud,Altitud,Altitudea,Altitudea
+annotate,Annotate,Anotar,Anotar,Anotar,Anotatu
+app_title,Space Mapper,Space Mapper,Space Mapper,Space Mapper,Space Mapper
+cancel,Cancel,Cancelar,Cancel·lar,Cancelar,Utzi
+confirm,Confirm,Confirmar,Confirmar,Confirmar,Baieztatu
+consent_form,Informed Consent,Consentimiento informado,Consentiment informat,Consentimento informado,Baimen informatua
+create_project,Create Project,Crear proyecto,Crear projecte,Crear proxecto,Proiektua sortu
+do_you_agree_to_share_your_anonymous_location_with,This survey is for authorized participants only. To participate you must have already provided informed consent directly to the research team. Each time you submit a survey form the app will also automatically transmit your location history going back to the date when you started participating. By checking this box you confirm that you have understood this information and that you are authorized to participate and have already provided informed consent to having any data you shared used in this way.,Esta encuesta es solo para participantes autorizados. Para participar debes haber proporcionado previamente tu consentimiento informado directamente al equipo de investigación. Cada vez que envíes un formulario la aplicación también transmitirá automáticamente tu historial de ubicación desde la fecha en que empezaste a participar. Al marcar esta casilla confirmas que has entendido esta información que estás autorizado a participar y que ya has dado tu consentimiento informado para que los datos compartidos se usen de este modo.,Aquesta enquesta és només per a participants autoritzats. Per participar-hi has d'haver proporcionat prèviament el consentiment informat directament a l'equip de recerca. Cada vegada que enviïs un formulari l'aplicació també transmetrà automàticament el teu historial d'ubicació des de la data en què vas començar a participar. En marcar aquesta casella confirmes que has entès aquesta informació que estàs autoritzat a participar i que ja has donat el consentiment informat perquè les dades compartides s'utilitzin d'aquesta manera.,Esta enquisa é só para participantes autorizados. Para participar tes que ter proporcionado previamente o consentimento informado directamente ao equipo de investigación. Cada vez que envíes un formulario a aplicación tamén transmitirá automaticamente o teu historial de localización desde a data na que comezaches a participar. Ao marcar esta caixa confirmas que comprendiches esta información que estás autorizado a participar e que xa deches o consentimento informado para que os datos compartidos se empreguen deste xeito.,Inkesta hau baimendutako parte-hartzaileentzat bakarrik da. Parte hartzeko ikerketa-taldeari aldez aurretik baimen informatua eman behar diozu. Formulario bat bidaltzen duzun bakoitzean aplikazioak automatikoki bidaliko du zure kokapen-historiala parte hartzen hasi zinen egunetik aurrera. Lauki hau markatzean informazio hau ulertu duzula parte hartzeko baimena duzula eta partekatutako datuak modu honetan erabiltzeko baimen informatua eman duzula berresten duzu.
+email,Email,Correo electrónico,Correu electrònic,Correo electrónico,Posta elektronikoa
+email_description,As an alternative you can send us an email.,Como alternativa puedes enviarnos un correo.,Com a alternativa ens pots enviar un correu.,Como alternativa podes enviarnos un correo.,Bestela mezu elektroniko bat bidal diezagukezu.
+end,End,Finalizar,Finalitzar,Finalizar,Amaitu
+error_404_message,Error 404: named route doesn't exist,Error 404: la ruta solicitada no existe,Error 404: la ruta sol·licitada no existeix,Erro 404: a ruta solicitada non existe,404 errorea: eskatutako bidea ez dago
+error_404_title,Error 404,Error 404,Error 404,Erro 404,404 errorea
+experiment_started,Experiment started,Experimento iniciado,Experiment iniciat,Experimento iniciado,Esperimentua hasita
+feature_request_email_body,"Dear Space Mapper support,
+
+I want to request the following feature:","Estimado equipo de soporte de Space Mapper:
+
+Quiero solicitar la siguiente funcionalidad:","Benvolgut equip de suport de Space Mapper:
+
+Vull sol·licitar la funcionalitat següent:","Estimado equipo de soporte de Space Mapper:
+
+Quero solicitar a seguinte funcionalidade:","Space Mapper laguntza-talde agurgarria:
+
+Ezaugarri hau eskatu nahi dut:"
+feature_request_email_subject,Space Mapper: Feature Request,Space Mapper: Solicitud de funcionalidad,Space Mapper: Sol·licitud de funcionalitat,Space Mapper: Solicitude de funcionalidade,Space Mapper: Ezaugarri-eskaera
+female,Female,Mujer,Dona,Muller,Emakumea
+fetch_project,Fetch Project,Obtener proyecto,Obtenir projecte,Obter proxecto,Proiektua eskuratu
+finish_experiment,Finish experiment,Finalizar experimento,Finalitzar experiment,Finalizar experimento,Esperimentua amaitu
+gender,Gender,Género,Gènere,Xénero,Generoa
+github,Github,Github,Github,Github,Github
+github_button,Go to Github Issues,Ir a incidencias de Github,Anar a incidències de Github,Ir ás incidencias de Github,Joan Github-eko arazoetara
+github_description,Report issues on Github to get the fastest solution.,Informa de incidencias en Github para obtener una solución más rápida.,Informa d'incidències a Github per obtenir una solució més ràpida.,Informa de incidencias en Github para obter a solución máis rápida.,Jakinarazi arazoak Github-en konponbide azkarrena lortzeko.
+initiate_experiment,Initiate Experiment,Iniciar experimento,Iniciar experiment,Iniciar experimento,Esperimentua hasi
+location_removed,Location removed,Ubicación eliminada,Ubicació eliminada,Localización eliminada,Kokapena ezabatu da
+locations_history,Locations History,Historial de ubicaciones,Historial d'ubicacions,Historial de localizacións,Kokapenen historia
+male,Male,Hombre,Home,Home,Gizona
+mosquito_alive_now,Press if the mosquito is alive now,Pulsa si el mosquito sigue vivo,Prem si el mosquit encara és viu,Preme se o mosquito segue vivo,Sakatu eltxoa oraindik bizirik badago
+mosquito_died,The mosquito died,El mosquito murió,El mosquit ha mort,O mosquito morreu,Eltxoa hil da
+mosquito_escaped,The mosquito escaped,El mosquito escapó,El mosquit ha escapat,O mosquito escapou,Eltxoa ihes egin du
+mosquito_is_alive,Mosquito is alive,El mosquito está vivo,El mosquit és viu,O mosquito está vivo,Eltxoa bizirik dago
+new_project,New Project,Nuevo proyecto,Nou projecte,Novo proxecto,Proiektu berria
+ok,OK,Aceptar,D'acord,Aceptar,Ados
+other,Other,Otro,Altre,Outro,Beste bat
+participate_in_a_project,Participate in a project,Participar en un proyecto,Participar en un projecte,Participar nun proxecto,Proiektu batean parte hartu
+project,Project,Proyecto,Projecte,Proxecto,Proiektua
+project_account_name_hint,Enter project account name here,Introduce aquí la cuenta del proyecto,Introdueix aquí el compte del projecte,Introduce aquí a conta do proxecto,Idatzi hemen proiektuaren kontu-izena
+project_account_name_label,Project Account Name,Cuenta del proyecto,Compte del projecte,Conta do proxecto,Proiektuaren kontu-izena
+project_fetch_failed,No project data found or failed to fetch project.,No se encontraron datos del proyecto o la obtención falló.,No s'han trobat dades del projecte o l'obtenció ha fallat.,Non se atoparon datos do proxecto ou fallou a obtención.,Ez da proiektuaren daturik aurkitu edo eskuratzeak huts egin du.
+project_name_hint,Enter your project name here,Introduce aquí el nombre del proyecto,Introdueix aquí el nom del projecte,Introduce aquí o nome do proxecto,Idatzi hemen proiektuaren izena
+project_name_label,Project Name,Nombre del proyecto,Nom del projecte,Nome do proxecto,Proiektuaren izena
+project_repository_name_hint,Enter repository name here,Introduce aquí el nombre del repositorio,Introdueix aquí el nom del repositori,Introduce aquí o nome do repositorio,Idatzi hemen biltegiaren izena
+project_repository_name_label,Project Repository Name,Repositorio del proyecto,Repositori del projecte,Repositorio do proxecto,Proiektuaren biltegia
+record_contact,Record Contact,Registrar contacto,Registrar contacte,Rexistrar contacto,Harremana erregistratu
+report_an_issue,Report an Issue,Reportar un problema,Informar d'un problema,Informar dun problema,Arazo baten berri eman
+report_email_btn1,Report an issue by email,Reportar un problema por correo,Informar d'un problema per correu,Informar dun problema por correo,Arazo baten berri eman posta bidez
+report_email_btn2,Request a feature by email,Solicitar una funcionalidad por correo,Sol·licitar una funcionalitat per correu,Solicitar unha funcionalidade por correo,Ezaugarri bat eskatu posta bidez
+report_issue_email_body,"Dear Space Mapper support,
+
+I want to report the following issue:","Estimado equipo de soporte de Space Mapper:
+
+Quiero reportar el siguiente problema:","Benvolgut equip de suport de Space Mapper:
+
+Vull informar del problema següent:","Estimado equipo de soporte de Space Mapper:
+
+Quero informar do seguinte problema:","Space Mapper laguntza-talde agurgarria:
+
+Honako arazo honen berri eman nahi dut:"
+report_issue_email_subject,Space Mapper: Report Issue,Space Mapper: Reporte de problema,Space Mapper: Informe de problema,Space Mapper: Informe de problema,Space Mapper: Arazo-txostena
+report_summary,Help us improve by either reporting an issue or requesting a useful feature.,Ayúdanos a mejorar reportando un problema o solicitando una funcionalidad útil.,Ajuda'ns a millorar informant d'un problema o sol·licitant una funcionalitat útil.,Axúdanos a mellorar informando dun problema ou solicitando unha funcionalidade útil.,Lagundu hobetzen arazo baten berri emanez edo ezaugarri erabilgarri bat eskatuz.
+reset,Reset,Restablecer,Restablir,Restablecer,Berrezarri
+save_and_view_project,Save and View Project,Guardar y ver proyecto,Desar i veure el projecte,Gardar e ver proxecto,Gorde eta ikusi proiektua
+scan_url_qr_code,Scan URL QR Code,Escanear código QR de URL,Escanejar codi QR d'URL,Escanear código QR de URL,Eskaneatu URL QR kodea
+select_age_group,Select age group,Selecciona un grupo de edad,Selecciona un grup d'edat,Selecciona un grupo de idade,Aukeratu adin-talde bat
+select_language,Language,Idioma,Idioma,Idioma,Hizkuntza
+share_locations,Share Locations,Compartir ubicaciones,Compartir ubicacions,Compartir localizacións,Kokapenak partekatu
+side_drawer_title,Space Mapper Menu,Menú de Space Mapper,Menú de Space Mapper,Menú de Space Mapper,Space Mapper menua
+speed,Speed,Velocidad,Velocitat,Velocidade,Abiadura
+start,Start,Comenzar,Començar,Comezar,Hasi
+submit,Submit,Enviar,Enviar,Enviar,Bidali
+tiger_in_car,Tiger in Car,Tigre en el coche,Tigre al cotxe,Tigre no coche,Tigrea autoan
+tiger_in_car_not_started,Not started,Sin iniciar,No iniciat,Sen iniciar,Hasi gabe
+view_project,View Project,Ver proyecto,Veure projecte,Ver proxecto,Ikusi proiektua
+visit_project_website,Visit Project Website,Visitar sitio web del proyecto,Visitar el web del projecte,Visitar a web do proxecto,Bisita ezazu proiektuaren webgunea
+was_the_contact_male_female?,Was the contact male or female?,¿El contacto era hombre o mujer?,El contacte era home o dona?,O contacto era home ou muller?,Kontaktua gizona ala emakumea zen?
+why_experiment_finished,Why did the experiment finish?,¿Por qué terminó el experimento?,Per què ha acabat l'experiment?,Por que rematou o experimento?,Zergatik amaitu da esperimentua?

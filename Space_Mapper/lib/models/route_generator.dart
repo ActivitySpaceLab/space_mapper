@@ -1,4 +1,5 @@
 import 'package:asm/external_projects/tiger_in_car/models/tiger_in_car_state.dart';
+import 'package:asm/models/app_localizations.dart';
 import 'package:asm/ui/project_create.dart';
 import 'package:flutter/material.dart';
 
@@ -70,13 +71,17 @@ class RouteGenerator {
   }
 
   static Route<dynamic> _errorRoute() {
-    return MaterialPageRoute(builder: (_) {
+    return MaterialPageRoute(builder: (context) {
       return Scaffold(
           appBar: AppBar(
-            title: Text('Error 404'),
+            title: Text(
+                AppLocalizations.of(context)?.translate('error_404_title') ??
+                    ''),
           ),
           body: Center(
-            child: Text("ERROR 404: named route doesn't exist"),
+            child: Text(AppLocalizations.of(context)
+                    ?.translate('error_404_message') ??
+                ''),
           ));
     });
   }

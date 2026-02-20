@@ -1,4 +1,5 @@
 import 'package:asm/external_projects/tiger_in_car/models/tiger_in_car_state.dart';
+import 'package:asm/models/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
@@ -36,7 +37,9 @@ class _FinishExperimentState extends State<FinishExperiment>
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-            title: Text("Why did the experiment finish?"),
+          title: Text(AppLocalizations.of(context)
+              ?.translate('why_experiment_finished') ??
+            ''),
             leading: IconButton(
               icon: Icon(
                 Icons.arrow_back,
@@ -63,21 +66,27 @@ class _FinishExperimentState extends State<FinishExperiment>
             // Width is an int that goes from 1 to 4 and it's relative to the screen's size => 1=25% of the screen's width, 2=50%, 3=75% and 4=100%
             // Height is a float
             displayCardBtn(
-                "The mosquito died",
+              AppLocalizations.of(context)?.translate('mosquito_died') ?? '',
                 Color.fromARGB(255, 255, 255, 255),
                 Icons.cancel_outlined,
                 4,
                 1.65,
                 0),
             displayCardBtn(
-                "The mosquito escaped",
+              AppLocalizations.of(context)?.translate('mosquito_escaped') ??
+                '',
                 Color.fromARGB(255, 255, 255, 255),
                 Icons.airline_stops,
                 4,
                 1.65,
                 1),
-            displayCardBtn("Other", Color.fromARGB(255, 255, 255, 255),
-                Icons.apps, 4, 1.65, 2),
+            displayCardBtn(
+              AppLocalizations.of(context)?.translate('other') ?? '',
+              Color.fromARGB(255, 255, 255, 255),
+              Icons.apps,
+              4,
+              1.65,
+              2),
           ],
         )));
   }

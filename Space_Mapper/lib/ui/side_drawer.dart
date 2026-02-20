@@ -9,6 +9,14 @@ import 'package:flutter_background_geolocation/flutter_background_geolocation.da
     as bg;
 
 class SpaceMapperSideDrawer extends StatelessWidget {
+  static const Map<String, String> _nativeLanguageNames = {
+    'en': 'English',
+    'es': 'Español',
+    'ca': 'Català',
+    'gl': 'Galego',
+    'eu': 'Euskara',
+  };
+
   _shareLocations() async {
     var now = new DateTime.now();
     List allLocations = await bg.BackgroundGeolocation.locations;
@@ -38,6 +46,34 @@ class SpaceMapperSideDrawer extends StatelessWidget {
     } else {
       throw 'Could not launch $url';
     }
+  }
+
+  Future<void> _showLanguageSelector(BuildContext context) async {
+    String currentCode = AppLanguage.localeNotifier.value.languageCode;
+    await showDialog<void>(
+      context: context,
+      builder: (BuildContext dialogContext) {
+        return SimpleDialog(
+          title: Text(
+            AppLocalizations.of(context)?.translate('select_language') ?? '',
+          ),
+          children: AppLocalizations.supportedLanguageCodes.map((languageCode) {
+            bool isSelected = currentCode == languageCode;
+            return SimpleDialogOption(
+              onPressed: () async {
+                await AppLanguage.setLocale(languageCode);
+                Navigator.of(dialogContext).pop();
+              },
+              child: Text(
+                isSelected
+                    ? '✓ ${_nativeLanguageNames[languageCode] ?? languageCode}'
+                    : (_nativeLanguageNames[languageCode] ?? languageCode),
+              ),
+            );
+          }).toList(),
+        );
+      },
+    );
   }
 
   @override
@@ -120,6 +156,22 @@ class SpaceMapperSideDrawer extends StatelessWidget {
                   ""),
               onTap: () {
                 _launchProjectURL();
+              },
+            ),
+          ),
+          Card(
+            child: ListTile(
+              leading: const Icon(Icons.language),
+              title: Text(
+                AppLocalizations.of(context)?.translate("select_language") ??
+                    "",
+              ),
+              subtitle: Text(
+                _nativeLanguageNames[AppLanguage.localeNotifier.value.languageCode] ??
+                    AppLanguage.localeNotifier.value.languageCode,
+              ),
+              onTap: () {
+                _showLanguageSelector(context);
               },
             ),
           ),
