@@ -59,6 +59,11 @@ For more information, please visit the project [website](<http://activityspacepr
 - Apple Store (iOS) (Coming soon)
 - [Github Releases (Android)](https://github.com/ActivitySpaceProject/space_mapper/releases).
 
+## Funding
+Funded by the Spanish Ministry of Science and Innovation and the European Union Next Generation/PRTR programme. MCIN/AEI/UE - CNS2022-135646.
+
+<img src="https://activityspacelab.com/img/MICIU+NextG+PRTR+AEI_page-0001.jpg" width="95%"></img>
+
 ## License
 This repository contains the source code development version of Space Mapper. Previous versions are available at <http://activityspaceproject.com>.
 
